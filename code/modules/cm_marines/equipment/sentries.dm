@@ -46,7 +46,7 @@
 	var/frame_hp = 100
 
 
-/obj/machinery/marine_turret_frame/proc/update_health(damage)
+/obj/machinery/marine_turret_frame/update_health(damage)
 	frame_hp -= damage
 	if(frame_hp <= 0)
 		if(has_cable)
@@ -276,7 +276,7 @@
 	var/atom/target = null
 	var/manual_override = FALSE
 	var/on = FALSE
-	var/health = 200
+	health = 200
 	var/health_max = 200
 	stat = 0 //Used just like mob.stat
 	var/datum/effect_system/spark_spread/spark_system //The spark system, used for generating... sparks?
@@ -678,7 +678,7 @@
 	else
 		icon_state = "sentry_off"
 
-/obj/machinery/marine_turret/proc/update_health(var/damage) //Negative damage restores health.
+/obj/machinery/marine_turret/update_health(var/damage) //Negative damage restores health.
 	health -= damage
 	if(health <= 0 && stat != 2)
 		stat = 2
